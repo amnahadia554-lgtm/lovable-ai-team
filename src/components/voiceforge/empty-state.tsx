@@ -1,0 +1,4 @@
+import type {LucideIcon} from 'lucide-react';
+export function EmptyState({icon:Icon,title,description,children}:{icon:LucideIcon;title:string;description:string;children?:React.ReactNode}) {
+ return <div className="flex min-h-60 flex-col items-center justify-center px-6 py-10 text-center"><div className="mb-4 flex size-12 items-center justify-center rounded-full border border-border bg-muted"><Icon className="size-5 text-muted-foreground"/></div><h3 className="text-sm font-semibold">{title}</h3><p className="mt-2 max-w-xs text-xs leading-6 text-muted-foreground">{description}</p>{children&&<div className="mt-5">{children}</div>}</div>;
+}
