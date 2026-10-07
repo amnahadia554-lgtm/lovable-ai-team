@@ -1,17 +1,89 @@
 {
   "source": "https://github.com/amnahadia34-dotcom/bolt-ai-voice-agent",
   "capabilities": [
-    {"capability":"application code","source":"GitHub main 0baff69","outcome":"Adapt Next.js source to supported TanStack Start without removing business capabilities","status":"inspected","next_action":"Resolve framework and backend migration consent before replacing the blank workspace"},
-    {"capability":"database schema","source":"Two existing SQL migrations, nine tables","outcome":"migrate","status":"pending","next_action":"User expressly forbids replacing existing architecture; obtain consent before moving schema to Lovable Cloud"},
-    {"capability":"database records","source":"No export provided","outcome":"migrate","status":"pending","next_action":"Request sanitized CSV/JSON exports after migration direction is resolved"},
-    {"capability":"auth identities","source":"Existing Supabase Auth code, no user export","outcome":"migrate","status":"pending","next_action":"Obtain consent for Cloud migration and existing user exports; original passwords and sessions cannot carry over"},
-    {"capability":"authorization","source":"organization ownership RLS in repository migrations","outcome":"Preserve and harden tenant isolation","status":"inspected","next_action":"Verify deployed policies and cross-tenant foreign references after backend connection"},
-    {"capability":"uploaded file bytes","source":"No storage export or configured storage workflow","outcome":"pending","status":"pending","next_action":"Inspect storage configuration when backend access is available"},
-    {"capability":"Vapi provider","source":"supabase/functions/vapi-agents/index.ts","outcome":"Preserve Vapi and fix create/update configuration and status persistence","status":"inspected","next_action":"VAPI_PRIVATE_API_KEY missing; do not make live Vapi requests until securely configured"},
-    {"capability":"public endpoints","source":"Existing vapi-agents function endpoint","outcome":"Preserve existing external callers unless approved cutover","status":"pending","next_action":"Resolve backend migration and endpoint cutover before implementing replacement"},
-    {"capability":"callbacks webhooks schedules","source":"No implemented call ingestion identified in initial inspection","outcome":"pending","status":"pending","next_action":"Confirm source audit and external configuration before claiming absent"},
-    {"capability":"secrets","source":"Current project secret-name listing","outcome":"Secure form only; never commit private credentials","status":"blocked","next_action":"VAPI_PRIVATE_API_KEY is absent; configure securely before testing"},
-    {"capability":"cutover","source":"Next.js repository and blank TanStack workspace","outcome":"pending approval","status":"blocked","next_action":"User decision required because requested preservation conflicts with platform database migration requirements"},
-    {"capability":"verification","source":"Static source inspection only","outcome":"Run UI and authenticated tenant-isolation and Vapi lifecycle checks","status":"pending","next_action":"Do not claim signup, login, tenant isolation, deployed schema, or live Vapi creation verified"}
+    {
+      "capability": "application code",
+      "source": "GitHub main 0baff69",
+      "outcome": "Adapt Next.js source to supported TanStack Start without removing business capabilities",
+      "status": "partially implemented",
+      "next_action": "Overview, wizard, navigation and data layouts adapted; document upload, live calling, phone assignment, full lead/appointment editing and provider integration remain incomplete."
+    },
+    {
+      "capability": "database schema",
+      "source": "Two existing SQL migrations, nine tables",
+      "outcome": "migrate",
+      "status": "applied",
+      "next_action": "Nine source tables adapted with grants, RLS and same-tenant foreign keys; import existing records after sanitized exports."
+    },
+    {
+      "capability": "database records",
+      "source": "No export provided",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Request sanitized CSV/JSON exports after migration direction is resolved"
+    },
+    {
+      "capability": "auth identities",
+      "source": "Existing Supabase Auth code, no user export",
+      "outcome": "migrate",
+      "status": "pending exports and verification",
+      "next_action": "Email auth enabled; signup UI added, no auth users exist yet. Request existing users and verified email mapping before importing identities."
+    },
+    {
+      "capability": "authorization",
+      "source": "organization ownership RLS in repository migrations",
+      "outcome": "Preserve and harden tenant isolation",
+      "status": "static checks passed; runtime verification pending",
+      "next_action": "RLS and same-tenant foreign keys applied. Linter reports only intentional no-policy admin-only migration identity table. Verify two authenticated tenants."
+    },
+    {
+      "capability": "uploaded file bytes",
+      "source": "No storage export or configured storage workflow",
+      "outcome": "pending",
+      "status": "pending",
+      "next_action": "Inspect storage configuration when backend access is available"
+    },
+    {
+      "capability": "Vapi provider",
+      "source": "supabase/functions/vapi-agents/index.ts",
+      "outcome": "Preserve Vapi and fix create/update configuration and status persistence",
+      "status": "inspected",
+      "next_action": "VAPI_PRIVATE_API_KEY missing; do not make live Vapi requests until securely configured"
+    },
+    {
+      "capability": "public endpoints",
+      "source": "Existing vapi-agents function endpoint",
+      "outcome": "Preserve existing external callers unless approved cutover",
+      "status": "pending",
+      "next_action": "Resolve backend migration and endpoint cutover before implementing replacement"
+    },
+    {
+      "capability": "callbacks webhooks schedules",
+      "source": "No implemented call ingestion identified in initial inspection",
+      "outcome": "pending",
+      "status": "pending",
+      "next_action": "Confirm source audit and external configuration before claiming absent"
+    },
+    {
+      "capability": "secrets",
+      "source": "Current project secret-name listing",
+      "outcome": "Secure form only; never commit private credentials",
+      "status": "blocked",
+      "next_action": "VAPI_PRIVATE_API_KEY is absent; configure securely before testing"
+    },
+    {
+      "capability": "cutover",
+      "source": "Next.js repository and blank TanStack workspace",
+      "outcome": "Cloud migration approved",
+      "status": "approved, pending verification",
+      "next_action": "Import existing records and users, verify, then configure provider URLs; original service has not been modified."
+    },
+    {
+      "capability": "verification",
+      "source": "Static source inspection only",
+      "outcome": "Run UI and authenticated tenant-isolation and Vapi lifecycle checks",
+      "status": "partial",
+      "next_action": "Latest build OK; public auth page verified with no runtime errors. Auth session mint unavailable: no users. Vapi schema unit tests run; no real assistant creation tested due missing secret."
+    }
   ]
 }

@@ -1,0 +1,3 @@
+import {Button} from '@/components/ui/button';
+export function RouteError({reset}:{reset:()=>void}) {return <main className="p-12"><h1 className="text-xl font-semibold">Your workspace didn’t load</h1><p className="my-4 text-muted-foreground">Please check your connection and try again.</p><Button onClick={reset}>Try again</Button></main>}
+export function RouteNotFound(){return <main className="p-12">This item was not found in your workspace.</main>}
