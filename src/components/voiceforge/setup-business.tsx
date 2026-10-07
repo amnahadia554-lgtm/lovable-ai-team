@@ -1,0 +1,7 @@
+import {useState} from 'react';
+import {useServerFn} from '@tanstack/react-start';
+import {useQueryClient} from '@tanstack/react-query';
+import {setupBusiness} from '@/lib/voiceforge/workspace.functions';
+import {Button} from '@/components/ui/button';
+import {Input} from '@/components/ui/input';
+export function SetupBusiness(){const [name,setName]=useState('');const [business,setBusiness]=useState('');const [error,setError]=useState('');const [busy,setBusy]=useState(false);const setup=useServerFn(setupBusiness);const qc=useQueryClient();return <main className="page-content"><h1 className="page-title">Welcome to VoiceForge</h1><p className="mb-8 mt-3 text-muted-foreground">Let’s create your business workspace.</p><form className="max-w-md space-y-5" onSubmit={async e=>{e.preventDefault();setBusy(true);try{await setup({data:{businessName:business,displayName:name}});await qc.invalidateQueries({queryKey:['workspace']});}catch(err){setError(err instanceof Error?err.message:'Unable to create workspace.')}finally{setBusy(false)}}}><label className="block text-sm">Your name<Input className="mt-2" required value={name} onChange={e=>setName(e.target.value)}/></label><label className="block text-sm">Business name<Input className="mt-2" required value={business} onChange={e=>setBusiness(e.target.value)}/></label>{error&&<p role="alert" className="text-sm text-destructive">{error}</p>}<Button disabled={busy} type="submit">{busy?'Creating workspace…':'Create workspace'}</Button></form></main>}
