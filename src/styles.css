@@ -62,7 +62,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -142,3 +142,58 @@
     color: var(--color-foreground);
   }
 }
+
+/* VoiceForge semantic workspace palette */
+@theme inline {
+ --font-sans: "Manrope", Arial, sans-serif;
+ --color-success: var(--success);
+ --color-warning: var(--warning);
+ --color-violet: var(--violet);
+ --color-hero-foreground: var(--hero-foreground);
+ --color-sidebar-muted: var(--sidebar-muted);
+}
+:root {
+ --background: oklch(0.982 0.003 250); --foreground: oklch(0.25 0.018 260);
+ --card: oklch(1 0 0); --card-foreground: var(--foreground);
+ --primary: oklch(0.56 0.14 181); --primary-foreground: oklch(1 0 0);
+ --secondary: oklch(0.955 0.005 250); --secondary-foreground: var(--foreground);
+ --muted: oklch(0.957 0.005 250); --muted-foreground: oklch(0.53 0.015 260);
+ --accent: oklch(0.94 0.026 181); --accent-foreground: oklch(0.40 0.095 181);
+ --border: oklch(0.921 0.007 250); --input: var(--border); --ring: var(--primary);
+ --sidebar: oklch(0.20 0.012 260); --sidebar-foreground: oklch(0.97 0.002 260);
+ --sidebar-accent: oklch(0.29 0.025 180); --sidebar-accent-foreground: oklch(0.84 0.11 180);
+ --sidebar-border: oklch(0.30 0.012 260); --sidebar-muted: oklch(0.66 0.012 260);
+ --success: oklch(0.57 0.12 160); --warning: oklch(0.64 0.14 70); --violet: oklch(0.58 0.17 295);
+ --hero-foreground: oklch(0.23 0.025 250);
+ --chart-1: var(--primary); --chart-2: var(--violet); --chart-3: var(--warning);
+}
+.dark {
+ --background: oklch(0.17 0.007 260); --foreground: oklch(0.95 0.002 260);
+ --card: oklch(0.22 0.009 260); --card-foreground: var(--foreground);
+ --popover: var(--card); --popover-foreground: var(--foreground);
+ --primary: oklch(0.70 0.12 180); --primary-foreground: oklch(0.18 0.025 180);
+ --secondary: oklch(0.28 0.008 260); --secondary-foreground: var(--foreground);
+ --muted: var(--secondary); --muted-foreground: oklch(0.69 0.009 260);
+ --accent: oklch(0.28 0.032 180); --accent-foreground: var(--primary);
+ --border: oklch(0.32 0.008 260); --input: var(--border);
+}
+body { font-family: var(--font-sans); letter-spacing: 0; }
+button,a,input,select,textarea { -webkit-tap-highlight-color: transparent; }
+.workspace { display:grid; grid-template-columns:244px minmax(0,1fr); min-height:100vh; }
+.workspace-sidebar { position:sticky; top:0; height:100vh; }
+.workspace-content { min-width:0; }
+.page-content { max-width:1500px; margin:0 auto; padding:32px 38px; }
+.voice-hero { min-height:280px; position:relative; overflow:hidden; }
+.voice-hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+.voice-hero-copy { position:relative; max-width:58%; padding:36px; color:var(--hero-foreground); }
+.hero-wave { display:flex; align-items:center; gap:3px; height:26px; }
+.hero-wave i { width:3px; background:var(--primary); border-radius:2px; height:12px; }
+.hero-wave i:nth-child(3n) { height:24px; } .hero-wave i:nth-child(4n) { height:17px; }
+.table-scroll { overflow-x:auto; }
+.data-table { width:100%; border-collapse:collapse; font-size:13px; white-space:nowrap; }
+.data-table th { text-align:left; padding:15px 18px; font-weight:500; color:var(--muted-foreground); background:var(--muted); }
+.data-table td { padding:18px; border-bottom:1px solid var(--border); }
+.page-title { font-size:28px; line-height:1.25; font-weight:700; }
+@media(max-width:1000px) { .workspace {grid-template-columns:205px minmax(0,1fr)} .page-content {padding:24px;} .voice-hero-copy {padding:26px;max-width:62%} }
+@media(max-width:700px) { .workspace {display:block} .workspace-sidebar {position:fixed;left:0;z-index:50;width:244px;transform:translateX(-100%);transition:transform .2s} .workspace-sidebar.is-open {transform:translateX(0)} .page-content {padding:20px 16px} .voice-hero {min-height:315px} .voice-hero img {object-position:65% center;opacity:.25} .voice-hero-copy {max-width:100%;padding:26px 20px} .page-title {font-size:25px} }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after {animation:none!important;transition:none!important} }
