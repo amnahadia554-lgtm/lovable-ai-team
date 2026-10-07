@@ -2,7 +2,7 @@ import {createServerFn} from '@tanstack/react-start';
 import {requireSupabaseAuth} from '@/integrations/supabase/auth-middleware';
 import {z} from 'zod';
 import {buildVapiPayload} from './vapi-payload';
-const config=z.object({name:z.string().trim().min(1).max(80),business_type:z.string().max(100),role:z.string().min(1).max(100),personality:z.string().max(100),description:z.string().max(5000),greeting:z.string().max(1000),system_prompt:z.string().max(15000),language:z.enum(['en','ur','hi','ar']),voice:z.string().regex(/^[a-zA-Z0-9_-]{1,100}$/),avatar:z.string().optional()});
+const config=z.object({name:z.string().trim().min(1).max(80),business_type:z.string().max(100),role:z.string().min(1).max(100),personality:z.string().max(100),description:z.string().max(5000),greeting:z.string().max(1000),system_prompt:z.string().max(15000),language:z.enum(['en','ur','hi','ar']),voice:z.string().regex(/^[a-zA-Z0-9_-]{1,100}$/),avatar:z.string().default('voice-assistant')});
 function providerError(value:unknown){if(typeof value==='string')return value.slice(0,1200);if(value&&typeof value==='object'){const o=value as {message?:unknown;error?:unknown};if(Array.isArray(o.message))return o.message.map(String).join('; ').slice(0,1200);if(typeof o.message==='string')return o.message.slice(0,1200);if(typeof o.error==='string')return o.error.slice(0,1200);}return 'Vapi could not complete this request.';}
 export const saveAgent=createServerFn({method:'POST'}).middleware([requireSupabaseAuth]).inputValidator(config.extend({id:z.string().uuid().optional()})).handler(async({data,context})=>{
  const {supabase,userId}=context;
